@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-burgundy: #810014;
+    --brand-gold: #E09900;
+    --neutral-white: #FFFFFF;
+    --neutral-black: #000000;
+    --neutral-offwhite: #F5F5F5;
+    --neutral-obsidian: #0D0D0D;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #000000;
+    background-color: #FFFFFF;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-serif-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-mono-tech {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-sans-ui {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Custom animations with refined architectural easing */
+@keyframes heroImageReveal {
+  0% {
+    transform: scale(1.06);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUpEditorial {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawGoldLine {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes drawVerticalLine {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pulseScrollLine {
+  0%, 100% {
+    transform: translateY(-100%);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+.animate-hero-image {
+  animation: heroImageReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up-1 {
+  opacity: 0;
+  animation: fadeUpEditorial 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.animate-fade-up-2 {
+  opacity: 0;
+  animation: fadeUpEditorial 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+}
+
+.animate-fade-up-3 {
+  opacity: 0;
+  animation: fadeUpEditorial 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.48s forwards;
+}
+
+.animate-fade-up-4 {
+  opacity: 0;
+  animation: fadeUpEditorial 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.64s forwards;
+}
+
+.animate-gold-rule {
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: drawGoldLine 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.animate-scroll-cue {
+  animation: pulseScrollLine 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* Architectural subtle drafting grid pattern */
+.bg-architectural-grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(224, 153, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(224, 153, 0, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-architectural-grid-light {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-image,
+  .animate-fade-up-1,
+  .animate-fade-up-2,
+  .animate-fade-up-3,
+  .animate-fade-up-4,
+  .animate-gold-rule,
+  .animate-scroll-cue {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
